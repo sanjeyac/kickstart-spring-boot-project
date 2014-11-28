@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista progetti</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+
+
+
+	<div class="container">
+		
+		<a th:href="@{'/user'}" class="btn" style="float:right">New user</a>
+		
+		<table class="table col-md-12">
+			<caption>Users list</caption>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Username</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${list}">
+					<td th:text="${user.id}"> </td>
+					<td th:text="${user.name}"> </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
