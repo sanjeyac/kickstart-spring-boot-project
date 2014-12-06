@@ -64,6 +64,7 @@ public class Application extends WebMvcConfigurerAdapter  {
 	@Configuration
 	protected static class AuthenticationSecurity extends
 			GlobalAuthenticationConfigurerAdapter {
+		
 		@Autowired
 		private DatabaseUserDetailsService users;
 		

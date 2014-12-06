@@ -1,12 +1,14 @@
 package eu.sanprojects.kickstart.security;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import eu.sanprojects.kickstart.model.Role;
 import eu.sanprojects.kickstart.model.User;
 
 public class DatabaseUserDetails implements UserDetails{
@@ -19,9 +21,13 @@ public class DatabaseUserDetails implements UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<GrantedAuthority> auth = AuthorityUtils
-				.commaSeparatedStringToAuthorityList("ROLE_USER");
-		return auth;
+		List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();
+		for ( Role role : user.getRoles() ){
+			SimpleGrantedAuthority auth = new SimpleGrantedAuthority(role.getAuthority() );
+			authList.add(auth);
+		}
+		
+		return authList;
 	}	
 
 	@Override
