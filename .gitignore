@@ -32,3 +32,6 @@ local.properties
 .texlipse
 
 /target
+
+# Intellij
+SpringBootKickstart.iml
