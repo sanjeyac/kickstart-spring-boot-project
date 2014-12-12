@@ -14,11 +14,7 @@ public class IntegrationTest {
     int port;
 
     @Before
-    public void setUp() {
-        //setup data
-        System.out.println("Tests setup");
-
-    }
+    public void setUp() { System.out.println("Tests setup"); }
 
     @Test
     public void sampleTest() {

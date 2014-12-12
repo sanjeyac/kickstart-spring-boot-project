@@ -1,5 +1,10 @@
 package eu.sanprojects.kickstart;
 
+import eu.sanprojects.kickstart.model.User;
+import eu.sanprojects.kickstart.model.converters.StringToUser;
+import eu.sanprojects.kickstart.model.converters.UserToString;
+import eu.sanprojects.kickstart.repository.UserRepository;
+import eu.sanprojects.kickstart.security.DatabaseUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -21,12 +26,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
-import eu.sanprojects.kickstart.model.User;
-import eu.sanprojects.kickstart.model.converters.StringToUser;
-import eu.sanprojects.kickstart.model.converters.UserToString;
-import eu.sanprojects.kickstart.repository.UserRepository;
-import eu.sanprojects.kickstart.security.DatabaseUserDetailsService;
 
 @Configuration
 @ComponentScan
@@ -53,12 +52,25 @@ public class Application extends WebMvcConfigurerAdapter  {
 		registry.addViewController("/login").setViewName("login");
 	}
 
+	//light admin
+	/*
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		LightAdmin.configure(servletContext)
+				.basePackage("org.lightadmin.boot.administration")
+				.baseUrl("/admin")
+				.security(false)
+				.backToSiteUrl("http://lightadmin.org");
+
+		super.onStartup(servletContext);
+	}*/
 	
 	//security
 	@Bean
 	public ApplicationSecurity applicationSecurity() {
 		return new ApplicationSecurity();
 	}
+
 
 	@Order(Ordered.HIGHEST_PRECEDENCE)
 	@Configuration

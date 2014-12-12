@@ -71,7 +71,25 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
+    <!-- light admin -->
+        <dependency>
+            <groupId>org.lightadmin</groupId>
+            <artifactId>lightadmin</artifactId>
+            <version>1.0.1.RELEASE</version>
+        </dependency>
+
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>lightadmin-nexus-releases</id>
+            <url>http://lightadmin.org/nexus/content/repositories/releases</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+        </repository>
+    </repositories>
 
     <!-- reload hotswap -->
     <build>
