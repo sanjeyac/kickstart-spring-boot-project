@@ -36,5 +36,6 @@ local.properties
 # Intellij
 SpringBootKickstart.iml
 .idea
+.idea/*
 
 author-rewrite.sh
