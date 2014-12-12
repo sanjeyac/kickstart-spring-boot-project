@@ -15,7 +15,9 @@ public class IntegrationTest {
 
     @Before
     public void setUp() {
+        //setup data
         System.out.println("Tests setup");
+
     }
 
     @Test
