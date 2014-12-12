@@ -52,8 +52,12 @@ public class DatabaseUserDetails implements UserDetails{
 
 	@Override
 	public String getPassword() {
-		System.out.println("controllo password: "+user.getPassword());
-		return user.getPassword();
+		if (user!=null) {
+			System.out.println("controllo password: " + user.getPassword());
+			return user.getPassword();
+		}else {
+			return null;
+		}
 	}
 
 	@Override
