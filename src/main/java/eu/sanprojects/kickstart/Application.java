@@ -50,6 +50,7 @@ public class Application extends WebMvcConfigurerAdapter  {
 	//controller supplementari
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/hello").setViewName("hello");
 		registry.addViewController("/login").setViewName("login");
 	}
 
@@ -94,12 +95,13 @@ public class Application extends WebMvcConfigurerAdapter  {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			http.authorizeRequests().antMatchers("/login").permitAll()
-					.anyRequest().fullyAuthenticated().and().formLogin()
+					.anyRequest().permitAll();
+					/*fullyAuthenticated().and().formLogin()
 					.loginPage("/login").failureUrl("/login?error").and()
 					.logout()
 					.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 					.and().exceptionHandling()
-					.accessDeniedPage("/access?error");
+					.accessDeniedPage("/access?error");*/
 		}
 	}	
 

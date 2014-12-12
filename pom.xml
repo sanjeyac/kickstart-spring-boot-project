@@ -14,6 +14,14 @@
         <version>1.1.5.RELEASE</version>
     </parent>
 
+    <!-- external repository for jade -->
+    <repositories>
+        <repository>
+            <id>sindicato-repo-snapshot</id>
+            <url>http://repo.sindica.to/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
 
         <!-- spring boot -->
@@ -40,11 +48,12 @@
             <version>9.3-1102-jdbc41</version>
         </dependency>
 
-	<!--  templating -->
+	<!--  templating / thymeleaf disabled
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+    -->
 
 	<!--  security -->
         <dependency>
@@ -52,11 +61,12 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-	<!-- twitter -->
+	<!-- twitter
         <dependency>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-twitter</artifactId>
         </dependency>
+        -->
         
 	<!-- utils -->
         <dependency>
