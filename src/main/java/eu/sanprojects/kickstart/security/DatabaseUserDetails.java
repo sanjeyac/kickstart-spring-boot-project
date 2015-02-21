@@ -23,7 +23,7 @@ public class DatabaseUserDetails implements UserDetails{
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();
 		for ( Role role : user.getRoles() ){
-			SimpleGrantedAuthority auth = new SimpleGrantedAuthority(role.getAuthority() );
+			SimpleGrantedAuthority auth = new SimpleGrantedAuthority( role.getAuthority() );
 			authList.add(auth);
 		}
 		
